@@ -1,4 +1,4 @@
-package org.example;
+package org.example.personnages;
 
 
 import org.example.personnages.*;
@@ -8,22 +8,7 @@ public class PersonnageFactory {
 
     public static Personnage creerPersonnage(Class clazz, String nom) {
         if (clazz.equals(Guerrier.class)) {
-            Guerrier guerrier = new Guerrier();
-            guerrier.setNom(nom);
-            System.out.println(guerrier.getNiveau());
-            // PdV : 6d6, Force : 5d6, Agilité : 2d6, Intelligence : 2d6, Armure : 1d6, Arme : Hache ou Epée
-            guerrier.setPointsDeVie(Util.nombreAleatoire(6, 36));
-            guerrier.setForce(Util.nombreAleatoire(5, 30));
-            guerrier.setAgilite(Util.nombreAleatoire(2,12));
-            guerrier.setIntelligence(Util.nombreAleatoire(2, 12));
-            int armeAleatoire = Util.nombreAleatoire(1, 2);
-            if (armeAleatoire == 1) {
-                guerrier.setArme(Arme.HACHE);
-            } else {
-                guerrier.setArme(Arme.EPEE);
-            }
-            guerrier.setArmure(Util.nombreAleatoire(1, 6));
-            return guerrier;
+            return new Guerrier(nom);
         }
 
         if (clazz.equals(Mage.class)) {

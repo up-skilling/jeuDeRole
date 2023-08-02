@@ -1,17 +1,19 @@
 package org.example.personnages;
 
+import org.example.Arme;
+
 public abstract class Personnage {
-    protected String nom;
-    protected Integer niveau = 1;
-    protected Integer pointsDeVie;
-    protected Integer force;
-    protected Integer agilite;
-    protected Integer intelligence;
-    protected Arme arme;
+    private String nom;
+    private int niveau = 1;
+    private int pointsDeVie;
+    private int force;
+    private int agilite;
+    private int intelligence;
+    private Arme arme;
 
     public Personnage() {}
 
-    public Personnage(String nom, Integer pointsDeVie, Integer force, Integer agilite, Integer intelligence, Arme arme) {
+    public Personnage(String nom, int pointsDeVie, int force, int agilite, int intelligence, Arme arme) {
         this.nom = nom;
         this.pointsDeVie = pointsDeVie;
         this.force = force;
@@ -21,14 +23,14 @@ public abstract class Personnage {
     }
 
     public int attaquer(Personnage cible) {
-        int degats = calculerDegatsDeBase();
+        int degats = calculDegatsDeBase();
         if (cible instanceof UtilisateurDArmure) {
             degats = degats - ((UtilisateurDArmure) cible).getArmure();
         }
         return degats;
     }
 
-    public abstract int calculerDegatsDeBase();
+    public abstract int calculDegatsDeBase();
 
     public String getNom() {
         return nom;
@@ -38,43 +40,43 @@ public abstract class Personnage {
         this.nom = nom;
     }
 
-    public Integer getNiveau() {
+    public int getNiveau() {
         return niveau;
     }
 
-    public void setNiveau(Integer niveau) {
+    public void setNiveau(int niveau) {
         this.niveau = niveau;
     }
 
-    public Integer getPointsDeVie() {
+    public int getPointsDeVie() {
         return pointsDeVie;
     }
 
-    public void setPointsDeVie(Integer pointsDeVie) {
+    public void setPointsDeVie(int pointsDeVie) {
         this.pointsDeVie = pointsDeVie;
     }
 
-    public Integer getForce() {
+    public int getForce() {
         return force;
     }
 
-    public void setForce(Integer force) {
+    public void setForce(int force) {
         this.force = force;
     }
 
-    public Integer getAgilite() {
+    public int getAgilite() {
         return agilite;
     }
 
-    public void setAgilite(Integer agilite) {
+    public void setAgilite(int agilite) {
         this.agilite = agilite;
     }
 
-    public Integer getIntelligence() {
+    public int getIntelligence() {
         return intelligence;
     }
 
-    public void setIntelligence(Integer intelligence) {
+    public void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
     }
 
@@ -88,14 +90,13 @@ public abstract class Personnage {
 
     @Override
     public String toString() {
-        return "personnages.Personnage{" +
-                "nom='" + nom + '\'' +
-                ", niveau=" + niveau +
-                ", pointsDeVie=" + pointsDeVie +
-                ", force=" + force +
-                ", agilite=" + agilite +
-                ", intelligence=" + intelligence +
-                ", arme=" + arme +
-                '}';
+        return nom + " : " +
+                "niveau " + niveau +
+                ", points de vie = " + pointsDeVie +
+                ", force = " + force +
+                ", agilite = " + agilite +
+                ", intelligence = " + intelligence +
+                ", arme = " + arme;
     }
+
 }

@@ -12,9 +12,9 @@ public abstract class Util {
         if (list == null || list.isEmpty()) {
             return null;
         }
-        // Index aléatoire de "list"
+        // Index aléatoire de la liste des types de personnage
         int index = Util.nombreAleatoire(0, list.size() - 1);
-        // Récupération de l'élément correspondant à l'index
+        // Récupération et retour, de l'élément correspondant à l'index
         return list.get(index);
     }
 }

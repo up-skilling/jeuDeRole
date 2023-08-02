@@ -1,17 +1,18 @@
 package org.example.personnages;
 
-
+import org.example.Arme;
 import org.example.utils.Util;
 
-public class Roublard extends Personnage implements UtilisateurDeChance {
-
+// PdV : 34, Force : 12, Agilité : 24, Intelligence : 12, Arme : Arc, Chance : 18
+// dégâts = ((force + intelligence) / 2 + agilite) * arme, ou attaque furtive si réussie (agilite * 3, et pas de prise en compte de l'armure)
+public class Roublard extends Vivant {
     private int chance;
 
     public Roublard() {
         super();
     }
 
-    public Roublard(String nom, Integer pointsDeVie, Integer force, Integer agilite, Integer intelligence, Arme arme, int chance) {
+    public Roublard(String nom, int pointsDeVie, int force, int agilite, int intelligence, Arme arme, int chance) {
         super(nom, pointsDeVie, force, agilite, intelligence, arme);
         this.chance = chance;
     }
@@ -19,18 +20,16 @@ public class Roublard extends Personnage implements UtilisateurDeChance {
     @Override
     public int attaquer(Personnage cible) {
         if (Util.nombreAleatoire(1, 100) <= chance) {
-            return agilite * 3;
+            return getAgilite() * 3;
         }
-        return super.attaquer(cible);
-    }
-
-    // dégâts = ((force + intelligence) / 2 + agilite) * arme, ou attaque furtive si réussie
-    @Override
-    public int calculerDegatsDeBase() {
-        return (int) Math.round(((double) (force + intelligence)) / 2 + agilite * arme.getCoefficient());
+        return calculDegatsDeBase();
     }
 
     @Override
+    public int calculDegatsDeBase() {
+        return (int) Math.round((double) (getForce() + getIntelligence()) / 2 + getAgilite() * getArme().getCoefficient());
+    }
+
     public int getChance() {
         return chance;
     }
@@ -41,14 +40,8 @@ public class Roublard extends Personnage implements UtilisateurDeChance {
 
     @Override
     public String toString() {
-        return "Roublard : " +
-                "Nom = '" + nom + '\'' +
-                ", Niveau = " + niveau +
-                ", PV = " + pointsDeVie +
-                ", F = " + force +
-                ", A = " + agilite +
-                ", I = " + intelligence +
-                ", Arme = " + arme +
-                ", Chance = " + chance;
+        return super.toString() +
+                ", chance = " + chance;
     }
+
 }

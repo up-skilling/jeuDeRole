@@ -16,11 +16,7 @@ public class Jeu {
         Scanner sc = new Scanner(System.in);
         int choix;
         do {
-            System.out.println("******** Menu ********");
-            System.out.println("1-Voir les caractéristiques des personnages");
-            System.out.println("2-Créer les deux personnages qui devront s'affronter");
-            System.out.println("3-Faire s'affronter les deux personnages (combat à mort)");
-            System.out.println("0-Sortir du programme");
+            afficherMenu();
             choix = sc.nextInt();
             sc.nextLine();
             switch(choix) {
@@ -69,6 +65,15 @@ public class Jeu {
         System.out.println("Guerrier => PdV : 40, Force : 30, Agilité : 13, Intelligence : 12, Armure : 6, Arme : Epée ou Hache");
         System.out.println("Mage => PdV : 24, Force : 6, Agilité : 12, Intelligence : 30, Mana : 24, Arme : Bâton");
         System.out.println("Roublard => PdV : 30, Force : 12, Agilité : 24, Intelligence : 12, Chance : 18, Arme : Arc");
+        System.out.println();
+    }
+
+    public void afficherMenu() {
+        System.out.println("******** Menu ********");
+        System.out.println("1-Voir les caractéristiques des personnages");
+        System.out.println("2-Créer les deux personnages qui devront s'affronter");
+        System.out.println("3-Faire s'affronter les deux personnages (combat à mort)");
+        System.out.println("0-Sortir du programme");
         System.out.println();
     }
 

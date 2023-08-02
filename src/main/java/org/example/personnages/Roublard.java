@@ -3,10 +3,10 @@ package org.example.personnages;
 import org.example.Arme;
 import org.example.utils.Util;
 
-// PdV : 34, Force : 12, Agilité : 24, Intelligence : 12, Arme : Arc, Chance : 18
-// dégâts = ((force + intelligence) / 2 + agilite) * arme, ou attaque furtive si réussie (agilite * 3, et pas de prise en compte de l'armure)
+// Points de vieV : 34, Force : 12, Agilité : 24, Intelligence : 12, Arme : Arc, Chance : 18
+// Dégâts = ((force + intelligence) / 2 + agilite) * arme, ou attaque furtive si réussie (agilite * 3, et pas de prise en compte de l'armure de la cible)
 public class Roublard extends Vivant {
-    private int chance;
+    private Integer chance;
 
     public Roublard() {
         super();

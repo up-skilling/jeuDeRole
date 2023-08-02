@@ -2,10 +2,10 @@ package org.example.personnages;
 
 import org.example.Arme;
 
-// PdV : 28, Force : 6, Agilité : 12, Intelligence : 30, Arme : Bâton, Mana : 24
-// dégâts : (intelligence + mana) * arme
+// Points de vie : 28, Force : 6, Agilité : 12, Intelligence : 30, Arme : Bâton, Mana : 24
+// Dégâts : (intelligence + mana) * arme
 public class Mage extends Vivant {
-    private int mana;
+    private Integer mana;
 
     public Mage() {
         super();

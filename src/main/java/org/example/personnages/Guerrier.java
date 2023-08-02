@@ -2,10 +2,10 @@ package org.example.personnages;
 
 import org.example.Arme;
 
-// PdV : 40, Force : 30, Agilité : 12, Intelligence : 12, Arme : Epée ou Hache, Armure : 6
-// dégâts : si arme = épée, (force + agilité) / 2 * arme, sinon si arme = hache, alors force * arme
+// Points de vie : 40, Force : 30, Agilité : 12, Intelligence : 12, Arme : Epée ou Hache, Armure : 6
+// Dégâts : si arme = épée, (force + agilité) / 2 * arme, sinon si arme = hache, alors force * arme
 public class Guerrier extends Vivant {
-    private int armure;
+    private Integer armure;
 
     public Guerrier() {
         super();

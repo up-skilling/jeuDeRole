@@ -4,11 +4,11 @@ import org.example.Arme;
 
 public abstract class Personnage {
     private String nom;
-    private int niveau = 1;
-    private int pointsDeVie;
-    private int force;
-    private int agilite;
-    private int intelligence;
+    private Integer niveau = 1;
+    private Integer pointsDeVie;
+    private Integer force;
+    private Integer agilite;
+    private Integer intelligence;
     private Arme arme;
 
     public Personnage() {}

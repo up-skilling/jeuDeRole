@@ -38,7 +38,8 @@ public class Jeu {
                     break;
                 case 3:
                     if (verifierPresencePersonnages()) {
-                        combat(personnages[0], personnages[1]);
+                        System.out.println("Tout n'est pas encore implémenté dans cette partie.");
+//                        combat(personnages[0], personnages[1]);
                         choix = 0;
                     } else {
                         System.out.println("Aucun personnage créé.");
@@ -78,26 +79,21 @@ public class Jeu {
     }
 
     public void afficherPersonnages() {
-        System.out.println(personnages[0]);
-        System.out.println(personnages[1]);
+        System.out.println(personnages[0].getClass().getSimpleName() + ", " + personnages[0]);
+        System.out.println(personnages[1].getClass().getSimpleName() + ", " + personnages[1]);
     }
 
     public void initialiserPersonnages() {
         Scanner sc = new Scanner(System.in);
-        Class<? extends Personnage> typeDuPremierPersonnage = Util.getRandomElement(typesPersonnage);
-        System.out.println("Le premier personnage sera de type " + typeDuPremierPersonnage.getSimpleName());
-        System.out.println("Entrez le nom de ce personnage : ");
-        String nomDuPremierPersonnage = sc.nextLine();
-        personnages[0] = PersonnageFactory.creerPersonnage(typeDuPremierPersonnage, nomDuPremierPersonnage);
-
-        Class<? extends Personnage> typeDuSecondPersonnage = Util.getRandomElement(typesPersonnage);
-        System.out.println("Le second personnage sera de type " + typeDuSecondPersonnage.getSimpleName());
-        System.out.println("Entrez le nom de ce personnage : ");
-        String nomDuSecondPersonnage = sc.nextLine();
-        personnages[1] = PersonnageFactory.creerPersonnage(typeDuSecondPersonnage, nomDuSecondPersonnage);
-
-        System.out.println(personnages[0]);
-        System.out.println(personnages[1]);
+        for(int i = 1; i <= 2; i++) {
+            Class<? extends Personnage> typeDuPersonnage = Util.getRandomElement(typesPersonnage);
+            System.out.println("Ce personnage sera de type " + typeDuPersonnage.getSimpleName());
+            System.out.println("Entrez le nom de ce personnage : ");
+            String nomDuPersonnage = sc.nextLine();
+            personnages[i - 1] = PersonnageFactory.creerPersonnage(typeDuPersonnage, nomDuPersonnage);
+            System.out.println(personnages[i - 1].getClass().getSimpleName() + ", " + personnages[0]);
+            System.out.println();
+        }
     }
 
     public void combat(Personnage premierPersonnage, Personnage secondPersonnage) {

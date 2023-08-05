@@ -5,7 +5,7 @@ import org.example.Arme;
 // Points de vie : 28, Force : 6, Agilité : 12, Intelligence : 30, Arme : Bâton, Mana : 24
 // Dégâts : (intelligence + mana) * arme
 public class Mage extends Vivant {
-    private Integer mana;
+    private int mana;
 
     public Mage() {
         super();
@@ -18,7 +18,7 @@ public class Mage extends Vivant {
 
     @Override
     public int calculDegatsDeBase() {
-        return (int) Math.round((getIntelligence() + getMana()) * getArme().getCoefficient());
+        return (int) Math.round((intelligence + mana) * arme.getCoefficient());
     }
 
     public int getMana() {

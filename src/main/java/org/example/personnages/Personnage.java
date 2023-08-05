@@ -3,15 +3,13 @@ package org.example.personnages;
 import org.example.Arme;
 
 public abstract class Personnage {
-    private String nom;
-    private Integer niveau = 1;
-    private Integer pointsDeVie;
-    private Integer force;
-    private Integer agilite;
-    private Integer intelligence;
-    private Arme arme;
-
-    public Personnage() {}
+    protected String nom;
+    protected int niveau = 1;
+    protected int pointsDeVie;
+    protected int force;
+    protected int agilite;
+    protected int intelligence;
+    protected Arme arme;
 
     public Personnage(String nom, int pointsDeVie, int force, int agilite, int intelligence, Arme arme) {
         this.nom = nom;
